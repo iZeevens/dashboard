@@ -1,16 +1,40 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FAFAFA;
+}
+
 .container {
-  max-width: 957px;
+  margin: 0 auto;
+  max-width: 960px;
   width: 100%;
 }
 
-.title {
-  font-family: "Montserrat", serif;
+.headingLg {
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 26px;
 }
 
-.subTitle {
-  font-family: "Montserrat", serif;
+.headingMd {
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 14px;
+}
+
+.textStrong {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.textRegular {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.btnFont {
+  font-weight: 600;
 }

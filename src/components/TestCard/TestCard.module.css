@@ -1,0 +1,15 @@
+.row {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 2fr 1fr;
+  align-items: center;
+
+  height: 70px;
+  background-color: #fff;
+  border-radius: 3px;
+  padding-left: 15px;
+  padding-right: 12px;
+}
+
+.status {
+  font-size: 14px;
+}

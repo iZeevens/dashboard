@@ -1,0 +1,16 @@
+.btn {
+  width: 95px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.results {
+  background-color: #2EE5AC;
+}
+
+.finalize {
+  background-color: #7D7D7D;
+}

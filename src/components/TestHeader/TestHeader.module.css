@@ -1,0 +1,14 @@
+.header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 2fr 1fr;
+
+  padding-left: 15px;
+  padding-right: 12px;
+  margin-bottom: 10px;
+}
+
+.itemName {
+  font-weight: 500;
+  font-size: 11px;
+  color: #999999;
+}
