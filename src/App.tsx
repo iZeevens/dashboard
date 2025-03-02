@@ -4,9 +4,11 @@ import Dashborard from "./pages/Dashboard/Dashboard";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Dashborard />} />
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Dashborard />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
