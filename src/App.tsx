@@ -1,12 +1,14 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router";
+import Dashborard from "./pages/Dashboard/Dashboard";
 
 function App() {
-
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashborard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
