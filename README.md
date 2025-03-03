@@ -19,16 +19,16 @@ This project is a React-based dashboard for displaying a list of A/B tests.
 
 ## 📦 Setup
 1. Clone the repo:
-```sh
+   ```sh
    git clone https://github.com/iZeevens/dashboard
- ```
+    ```
 2. Install dependencies:
-```sh
+   ```sh
    npm install
-```
+   ```
 3. Run the project:
-```sh
+   ```sh
    npm run dev
-```
+   ```
 ## API
 The app fetches data from [Kameleoon API](https://development.kameleoon.net/oivanov/frontend-interview-task-api)
