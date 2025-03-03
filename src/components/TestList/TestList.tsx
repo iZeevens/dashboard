@@ -65,8 +65,8 @@ function TestList({
       />
 
       {filteredTests.length > 0 ? (
-        filteredTests.map((tests) => {
-          const { id, name, type, status, siteId } = tests;
+        filteredTests.map((test) => {
+          const { id, name, type, status, siteId } = test;
 
           return (
             <TestCard

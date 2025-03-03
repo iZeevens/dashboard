@@ -14,14 +14,11 @@ function TestHeader({ columns, onSort, sortKey, setSortKey }: TestHeaderProps) {
   const [isAscending, setIsAscending] = useState(true);
 
   const handleSort = (key: keyof ITest) => {
+    const newAscending = key === sortKey ? !isAscending : false;
+    
     setSortKey(key);
-    setIsAscending((prev) => {
-      const newAscending = key === sortKey ? !prev : false;
-
-      onSort(key, newAscending);
-
-      return newAscending;
-    });
+    setIsAscending(newAscending);
+    onSort(key, newAscending);
   };
 
   return (

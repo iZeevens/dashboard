@@ -8,8 +8,14 @@ function BackBtn() {
     navigate("/");
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleClick();
+    }
+  }
+
   return (
-    <div className={styles.container} onClick={handleClick}>
+    <div className={styles.container} onClick={handleClick} onKeyDown={handleKeyDown} tabIndex={0} role="button">
       <img src="/back-chevron.svg" className={styles.img}/>
       <span className={styles.text}>Back</span>
     </div>

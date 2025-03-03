@@ -34,8 +34,14 @@ function TestCard({ id, name, type, status, siteId }: TestCardProps) {
     navigate(`/${path}/${testId}`);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleClick(id);
+    }
+  };
+
   return (
-    <div className={styles.row} onClick={() => handleClick(id)}>
+    <div className={styles.row} onClick={() => handleClick(id)} onKeyDown={handleKeyDown} tabIndex={0} role="button">
       <span className={`textStrong ${styles.name}`}>{name}</span>
       <span className={`textRegular ${styles.type}`}>{type}</span>
       <span
