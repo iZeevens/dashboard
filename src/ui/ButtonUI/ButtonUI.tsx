@@ -1,16 +1,18 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, memo } from "react";
 import styles from "./ButtonUI.module.css";
 
 type ButtonUIProps = {
-  typeBtn: "results" | "finalize";
+  typeBtn: "results" | "finalize" | "reset";
 } & HTMLAttributes<HTMLButtonElement>;
 
 function ButtonUI({ typeBtn, ...props }: ButtonUIProps) {
+  const text = typeBtn.charAt(0).toUpperCase() + typeBtn.slice(1);
+
   return (
     <button className={`${styles[typeBtn]} ${styles.btn} btnFont`} {...props}>
-      {typeBtn === "finalize" ? "Finalize" : "Results"}
+      {text}
     </button>
   );
 }
 
-export default ButtonUI;
+export default memo(ButtonUI);

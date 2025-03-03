@@ -8,7 +8,19 @@
 }
 
 .itemName {
+  position: relative;
   font-weight: 500;
   font-size: 11px;
   color: #999999;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.chevron {
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
 }

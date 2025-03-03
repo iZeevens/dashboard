@@ -7,8 +7,8 @@ const apiClient = axios.create({
 });
 
 const getSites = () => apiClient.get(`/sites`);
-const getSitesById = (id: string) => apiClient.get(`/sites/${id}`);
+const getSitesById = (id: number) => apiClient.get(`/sites/${id}`);
 const getTests = () => apiClient.get(`/tests`);
-const getTestsById = (id: string) => apiClient.get(`/tests/${id}`);
+const getTestsById = (id: number) => apiClient.get(`/tests/${id}`);
 
 export { getSites, getSitesById, getTests, getTestsById };

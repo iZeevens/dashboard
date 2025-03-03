@@ -24,4 +24,4 @@ interface ITest {
   siteId: number;
 }
 
-export type { ISite, ITest };
+export type { ISite, ITest, Type, Status };

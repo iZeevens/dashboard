@@ -1,29 +1,55 @@
 import styles from "./Dashboard.module.css";
-import { useEffect, useState } from "react";
-import { getSites } from "../../api/api";
+import { useState, useEffect, useCallback } from "react";
+import { getTests } from "../../api/api";
 import { ITest } from "../../types/apiTypes";
 import SearchInput from "../../components/SearchInput/SearchInput";
 import TestList from "../../components/TestList/TestList";
 
 function Dashborard() {
-  const [data, setData] = useState<ITest[]>([]);
+  const [tests, setTests] = useState<ITest[]>([]);
+  const [filteredTests, setFilteredTests] = useState<ITest[]>([]);
+  const [searchQueary, setSearchQueary] = useState("");
 
   useEffect(() => {
-    const fetchDataSites = async () => {
-      const { data } = await getSites();
+    const fetchDataTests = async () => {
+      const { data } = await getTests();
 
-      setData(data)
+      setTests(data);
+      setFilteredTests(data);
     };
 
-    fetchDataSites()
+    fetchDataTests();
+  }, []);
+
+  useEffect(() => {
+    setFilteredTests(
+      tests.filter((test) =>
+        test.name.toLowerCase().includes(searchQueary.toLowerCase())
+      )
+    );
+  }, [searchQueary, tests]);
+
+  const handleChangeSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    setSearchQueary(value)
   }, []);
 
   return (
     <div>
       <h1 className={`headingLg, ${styles.title}`}>Dashboard</h1>
 
-      {/* <SearchInput testCount={7}/> */}
-      <TestList />
+      <SearchInput
+        testCount={tests.length}
+        value={searchQueary}
+        onChange={handleChangeSearch}
+      />
+      <TestList
+        filteredTests={filteredTests}
+        setFilteredTests={setFilteredTests}
+        tests={tests}
+        setSearchQueary={setSearchQueary}
+      />
     </div>
   );
 }

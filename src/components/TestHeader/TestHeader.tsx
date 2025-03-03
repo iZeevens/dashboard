@@ -1,14 +1,48 @@
 import styles from "./TestHeader.module.css";
+import { useState, memo } from "react";
+import { ITest } from "../../types/apiTypes";
+import { Columns } from "../../types/globalTypes";
 
-function TestHeader() {
+type TestHeaderProps = {
+  columns: Columns;
+  onSort: (key: keyof ITest, isAscending: boolean) => void;
+  sortKey: string | null;
+  setSortKey: React.Dispatch<React.SetStateAction<string | null>>
+};
+
+function TestHeader({ columns, onSort, sortKey, setSortKey }: TestHeaderProps) {
+  const [isAscending, setIsAscending] = useState(true);
+
+  const handleSort = (key: keyof ITest) => {
+    setSortKey(key);
+    setIsAscending((prev) => {
+      const newAscending = key === sortKey ? !prev : false;
+
+      onSort(key, newAscending);
+
+      return newAscending;
+    });
+  };
+
   return (
     <div className={styles.header}>
-      <span className={styles.itemName}>NAME</span>
-      <span className={styles.itemName}>TYPE</span>
-      <span className={styles.itemName}>STATUS</span>
-      <span className={styles.itemName}>SITE</span>
+      {columns.map(({ key, label }) => (
+        <span
+          key={key}
+          className={styles.itemName}
+          onClick={() => handleSort(key)}
+        >
+          {label}
+          {sortKey === key &&
+            (isAscending ? (
+              <img src="/up-chevron.svg" className={styles.chevron} />
+            ) : (
+              <img src="/down-chevron.svg" className={styles.chevron} />
+            ))}
+        </span>
+      ))}
     </div>
   );
 }
 
-export default TestHeader;
+export default memo(TestHeader);

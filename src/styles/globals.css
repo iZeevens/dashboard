@@ -3,14 +3,22 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #FAFAFA;
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
-.container {
+body {
+  background-color: #FAFAFA;
+  margin: 45px 10px;
+}
+
+.wrapper {
   margin: 0 auto;
   max-width: 960px;
   width: 100%;
+  position: relative;
 }
 
 .headingLg {

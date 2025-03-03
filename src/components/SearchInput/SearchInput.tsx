@@ -1,8 +1,9 @@
 import styles from "./SearchInput.module.css";
+import { memo } from "react";
 
 type SearchInputProps = {
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   testCount: number;
 };
 
@@ -22,4 +23,4 @@ function SearchInput({ value, onChange, testCount }: SearchInputProps) {
   );
 }
 
-export default SearchInput;
+export default memo(SearchInput);
