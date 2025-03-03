@@ -19,6 +19,10 @@
   border: 1px solid #EBEBEB;
   border-radius: 15px;
   font-size: 14px;
+  color: #474747;
+}
+
+.input::placeholder {
   color: #D1D1D1;
 }
 

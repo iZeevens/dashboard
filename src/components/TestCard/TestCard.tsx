@@ -13,6 +13,11 @@ type TestCardProps = {
   siteId: number;
 };
 
+const generateColor = (siteId: number) => {
+  const hue = siteId * 137.5 % 360;
+  return `hsl(${hue}, 70%, 50%)`;
+};
+
 function TestCard({ id, name, type, status, siteId }: TestCardProps) {
   const [site, setSite] = useState("");
   const navigate = useNavigate();
@@ -41,7 +46,7 @@ function TestCard({ id, name, type, status, siteId }: TestCardProps) {
   };
 
   return (
-    <div className={styles.row} onClick={() => handleClick(id)} onKeyDown={handleKeyDown} tabIndex={0} role="button">
+    <div className={styles.row} style={{borderLeft: `4px solid ${generateColor(siteId)}`}} onClick={() => handleClick(id)} onKeyDown={handleKeyDown} tabIndex={0} role="button">
       <span className={`textStrong ${styles.name}`}>{name}</span>
       <span className={`textRegular ${styles.type}`}>{type}</span>
       <span

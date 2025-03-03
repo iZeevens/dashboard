@@ -40,7 +40,7 @@ function Dashborard() {
       <h1 className={`headingLg, ${styles.title}`}>Dashboard</h1>
 
       <SearchInput
-        testCount={tests.length}
+        testCount={filteredTests.length}
         value={searchQueary}
         onChange={handleChangeSearch}
       />
